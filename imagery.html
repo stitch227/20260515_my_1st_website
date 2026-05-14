@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Yarndings+12&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Buda:wght@300&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="css/style.css" />    
+
+  <link rel="stylesheet" href="css/style_imagery.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  
+  
+
+</head>
+<body>
+
+  <!-- ════ 섹션 1: PHOTOS ════ -->
+  <div id="section-photos">
+    <div id="scroll-container">
+      <div id="stage">
+        <div id="card-layer"></div>
+        <div id="center-content">
+          <p class="label">THE PHOTO JOURNAL</p>
+          <h1 id="center-heading"><span class="heading-main">Stills of the Moment</span><br><em class="heading-sub">captured.</em></h1>
+          
+        </div>
+        <p class="imagery-hint">scroll to explore ↓</p>
+      </div>
+      
+    </div>
+    
+  </div>
+
+
+
+
+
+  <!-- ════ 섹션 2: MOTION ════ -->
+  <div id="section-motion">
+
+    <button id="btn-up" onclick="scrollToTop()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="8,14 12,10 16,14"/>
+      </svg>
+    </button>
+
+    <!-- 좌측: 프로젝트 제목 -->
+    <div id="motion-sidebar">
+      <div id="text-group">
+        <p id="project-title">—</p>
+        <p id="project-subtitle">—</p>
+      </div>
+    </div>
+
+    <!-- 우측: 워터마크 -->
+    <div id="motion-title">
+      <h2 id="generated-text"></h2>
+    </div>
+
+    <!-- 카드 스택 (JS가 카드 생성) -->
+    <div id="stack-spacer">
+      <div id="stack-pin"></div>
+    </div>
+
+  </div>
+
+  <!-- ════ 섹션 3: 과제 ════ -->
+  <div id="section-assignment">
+    <div class="assignment-grid">
+
+      <!-- 카드 1: 이미지 (호버시 두번째 이미지) -->
+      <div class="assignment-card">
+        <img class="card-img card-img--front" src="https://res.cloudinary.com/dzayipaad/image/upload/v1778789912/%EC%B0%B8%EA%B3%A0_%EB%B0%B0%EC%9A%B0_%EC%9D%B4%EB%AF%B8%EC%A7%80_muleb7.jpg" alt="" />
+        <img class="card-img card-img--back" src="https://res.cloudinary.com/dzayipaad/image/upload/v1778789913/2._%EC%A2%8B%EC%95%84%ED%95%98%EB%8A%94_%EB%B0%B0%EC%9A%B0_%ED%99%8D%EB%B3%B4_%EA%B4%91%EA%B3%A0_oehunn.jpg" alt="" />
+      </div>
+
+      <!-- 카드 2: 이미지 (호버시 두번째 이미지) -->
+      <div class="assignment-card">
+        <img class="card-img card-img--front" src="https://res.cloudinary.com/dzayipaad/image/upload/v1778789986/%EC%B9%B4%ED%8E%98%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4_%EB%8F%84%EB%A9%B4_wspdxw.png" alt="" />
+        <img class="card-img card-img--back" src="https://res.cloudinary.com/dzayipaad/image/upload/v1778789913/%EB%8B%A4%EC%8B%9C_%EB%91%90%EB%B2%88%EC%A7%B8._%EC%9D%B8%ED%85%8C%EB%A6%AC%EC%96%B4_%EC%8A%A4%ED%83%80%EC%9D%BC_%EB%B0%8F_%EC%A1%B0%EB%AA%85%EB%AC%B4%EB%93%9C%EA%B9%8C%EC%A7%80_%EC%B6%94%EA%B0%80._-_%EB%8B%A4%EC%9D%8C%EC%9D%80_%ED%96%87%EB%B9%9B%EA%B9%8C%EC%A7%80_%EC%B6%94%EA%B0%80%ED%95%98%EA%B8%B0_mdvcac.png" alt="" />
+      </div>
+
+      <!-- 카드 3: 링크 -->
+      <div class="assignment-card assignment-card--link">
+        <a href="https://stitch227.github.io/Login_donga_ac/" target="_blank" class="assignment-link">LOGIN</a>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  
+  <script src="js/components.js"></script>
+  <script src="js/script_imagery.js"></script>
+  
+</body>
+</html>

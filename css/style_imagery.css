@@ -1,0 +1,311 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: auto; }
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Instrument Serif', serif;
+  overflow: hidden;
+}
+
+
+/* ══════════════════════════════════════
+   섹션 1: PHOTOS
+══════════════════════════════════════ */
+.imagery-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.406);
+  transition: opacity 0.4s;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
+}
+
+#section-photos { position: relative; }
+#scroll-container { height: 400vh; }
+
+#stage {
+  position: fixed; inset: 0;
+  width: 100vw; height: 100vh;
+  overflow: hidden; z-index: 1;
+}
+#card-layer { position: absolute; inset: 0; pointer-events: none; }
+
+.card {
+  position: absolute; object-fit: cover;
+  border-radius: 1px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5), 0 16px 48px rgba(0,0,0,0.4);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translate(-9999px, -9999px);
+}
+
+#center-content {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; z-index: 100;
+  pointer-events: none; user-select: none;
+}
+.label {
+  font-size: clamp(10px, 1.2vw, 13px); letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-bottom: 30px;
+}
+#center-heading {
+  font-size: clamp(26px, 4vw, 54px);
+  font-weight: 400; line-height: 1; letter-spacing: -0.02em;
+  color: rgb(255, 255, 255);
+
+}
+#center-heading em { font-style: italic; color: rgba(255,255,255,0.6);font-size: 0.6em; letter-spacing: 0.02em; }
+
+/*
+.sub {
+  font-size: clamp(10px, 1.2vw, 13px); letter-spacing: 0.15em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); margin-top: 24px;
+}
+*/
+
+
+
+
+
+/* ══════════════════════════════════════
+   섹션 2: MOTION
+   markclennon 방식:
+   - 중앙에 고정된 뷰포트
+   - 카드들이 세로로 쌓여 스크롤 시
+     perspective + rotateX로 원근감 있게 움직임
+   - overflow:hidden 박스 안에서 img 패럴랙스
+══════════════════════════════════════ */
+#section-motion {
+  position: relative;
+  background: #000000;
+}
+
+/* 올라가기 버튼 */
+#btn-up {
+  position: fixed; top: clamp(60px, 6vw, 80px); right: clamp(24px, 3.5vw, 60px);
+  width: 50px; height: 50px; border-radius: 50%;
+  border: 1px solid rgba(215, 215, 215, 0.464);
+  background: transparent; color: #d4d4d49f;
+  cursor: pointer; z-index: 999;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s, border-color 0.2s;
+}
+#btn-up svg { width: 20px; height: 20px; }
+#btn-up:hover { border-color: rgba(0,0,0,0.6); }
+#btn-up.visible { opacity: 1; pointer-events: all; }
+
+/* 좌측 프로젝트 제목 영역 */
+#motion-sidebar {
+  position: fixed; left: 48px; top: 50%;
+  transform: translateY(-50%);
+  z-index: 500; opacity: 0;
+  transition: opacity 0.5s;
+  max-width: 220px;
+}
+#motion-sidebar.visible { opacity: 1; }
+
+
+
+#text-group {
+  perspective: 800px;
+  will-change: transform, opacity;
+}
+
+
+
+#project-title {
+  font-size: clamp(20px, 3.2vw, 35px);
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  
+}
+
+#project-subtitle {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  color: rgba(192, 192, 192, 0.704);
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 20px;
+  white-space: pre-line;
+  line-height: 1.9;
+}
+
+
+.cursor {
+	animation: blink 0.7s infinite;
+	font-style: normal;
+	opacity: 1;
+}
+
+@keyframes blink {
+	0%, 100% { opacity: 1; }
+	50%       { opacity: 0; }
+}
+
+/* 우측 워터마크 */
+#motion-title {
+  position: fixed; right: 4.5vw; bottom: 20vh;
+  transform: translateY(-50%);
+  z-index: 500;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  width: clamp(180px, 15vw, 260px);
+  display: flex;
+  justify-content: flex-end;  /* ← 추가 */
+}
+#motion-title.visible { opacity: 1; }
+#motion-title h2 {
+  font-size: clamp(18px, 2.7vw, 25px);
+  font-weight: 100;
+  font-style: italic;
+  font-family: 'Orbitron', sans-serif;
+  color: rgba(255, 255, 255, 0.378);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  min-width: 200px;
+  text-align: left;
+  
+}
+
+/* ── 카드 스택 핀 영역 ── */
+#stack-spacer {
+   position: relative;/* JS에서 동적 설정 */
+}
+
+#stack-pin {
+  position: sticky;
+  top: 0; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px; /* ★ 원근감 */
+  z-index: 2;
+}
+
+/* 카드 래퍼: overflow:hidden 고정 박스 */
+.motion-card-wrap {
+  position: absolute;
+  width: min(52vw, 780px);
+  /* aspect-ratio: 16/9 → JS에서 height 계산 */
+  overflow: hidden;  /* ★ 핵심: 박스 밖 이미지 숨김 */
+  border-radius: 3px;
+  will-change: transform, opacity;
+  transform-origin: center center;
+  
+}
+
+/* 내부 이미지: 박스보다 크게 → 패럴랙스 여유 */
+.motion-card-wrap img {
+  width: 112%;
+  height: 112%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  left: -6%; top: -6%;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#section-assignment {
+  background: #000;
+  padding: 10vw 100px;
+}
+
+.assignment-grid {
+  display: flex;
+  gap: 2vw;
+  align-items: stretch;
+  height: 17vw;
+}
+
+.assignment-card {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  height: 100%;
+  flex-shrink: 0;
+  border: none;
+}
+
+.assignment-card:nth-child(1) { aspect-ratio: 1024 / 559; }
+.assignment-card:nth-child(2) { aspect-ratio: 1333 / 784; }
+.assignment-card:nth-child(3) { aspect-ratio: 1 / 1; }
+
+/* 앞면 */
+.card-img--front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.4s;
+}
+
+/* 뒷면 */
+.card-img--back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+/* 호버시 뒷면 등장 */
+.assignment-card:hover .card-img--front { opacity: 0; }
+.assignment-card:hover .card-img--back  { opacity: 1; }
+
+/* 링크 카드 */
+.assignment-card--link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid #ffffffca;
+}
+
+.assignment-link {
+  color: #fff;
+  font-size: 1.1em;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-bottom: 1px solid #fff;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.assignment-link:hover {
+  opacity: 0.6;
+}
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Sangkyeong Kim</title>
+
+	<!-- 폰트 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Yarndings+12&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Buda:wght@300&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Michroma&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/khyay.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Alata&family=Russo+One&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Boldonse&display=swap" rel="stylesheet" />
+
+	<!-- GSAP -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/style_home.css" />
+</head>
+<body>
+
+	<!-- 헤더는 components.js 가 자동 삽입 -->
+
+	<!-- ════ HERO ════ -->
+	<section class="hero" id="hero">
+
+		<!-- 왼쪽 상단: 헤드라인 + 본문 + 썸네일 -->
+		<div class="hero__left">
+			<h1 class="hero__headline">
+				<span class="hero__line1">A DESIGN THAT</span>
+				<span class="hero__line2">DOESN'T JUST SHOW</span>
+			</h1>
+			<p class="hero__body">
+				Through design, I aim to create <br> work that connects with people. <br>
+				My practice focuses on how <br> meaning is structured, <br>
+				communicated, and <br>understood.
+			</p>
+			<div class="hero__thumb" aria-hidden="true"></div>
+		</div>
+
+		<!-- 오른쪽: 글리프 -->
+		<div class="hero__right">
+    		<span class="hero__glyph" id="heroGlyph">S</span>
+		</div>
+
+		<!-- — IT RESONATES -->
+		<div class="hero__line3">
+    		<span class="hero__em">—&nbsp;IT&nbsp;</span>
+    		<span class="hero__word-wrap" aria-live="polite">
+        		<span class="hero__word" id="heroWord">RESONATES</span>
+    		</span>
+		</div>
+
+		
+	</section>
+
+	<!-- ════ TICKER ════ -->
+	<div class="ticker" aria-label="Services">
+		<div class="ticker__track" id="tickerTrack"></div>
+	</div>
+
+	<!-- ════ ABOUT SECTION ════ -->
+	<section class="about" id="about">
+
+		<div class="about__top">
+
+			<!-- 왼쪽: 사진 콜라주 + 정보 리스트 -->
+			<div class="about__left">
+
+				<img class="about__photo" src="https://res.cloudinary.com/dzayipaad/image/upload/v1778550734/20220306_150542_bposkp.jpg" alt="portrait" />
+
+				<ul class="about__infolist">
+					<li>DONG-A UNI</li>
+					<li>VISUAL DESIGN</li>
+					<li>2232296</li>
+					<li class="info--gap">DONGSEO UNI</li>
+					<li>20254317</li>
+					<li class="info--gap">TYPOGRAPHY</li>
+					<li>BRAND IDENTITY</li>
+					<li>PHTOGRAPHY</li>
+					<li>AI X Design</li>
+					<li>Humanities</li>
+					<li>(Diving Into) UX/UI</li>
+				</ul>
+
+			</div><!-- /.about__left -->
+
+			<!-- 오른쪽: 큰 I'M 타이포 + 빨간 액센트 바 -->
+			<div class="about__right">
+				<div class="about__im-wrap">
+					<span class="about__im">I'M</span>
+					<div class="about__accent"></div>
+				</div>
+			</div><!-- /.about__right -->
+
+		</div><!-- /.about__top -->
+
+		<!-- 하단: About 라벨 + Learn more 링크 -->
+		<div class="about__bottom">
+			<span class="about__label">About</span>
+			<a class="about__learnmore" href="#" id="figmaToggle">
+				<div class="about__arrow">
+					<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+						<line x1="10" y1="50" x2="50" y2="10" stroke="black" stroke-width="5.5" stroke-linecap="square"/>
+						<polyline points="22,10 50,10 50,38" fill="none" stroke="black" stroke-width="5.5" stroke-linejoin="miter" stroke-linecap="square"/>
+					</svg>
+				</div>
+				<span class="about__learntext">Learn<br>more<br>about me</span>
+			</a>
+		</div><!-- /.about__bottom -->
+
+		<!-- 이건 바로 아래에 추가 -->
+		<div id="figmaModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center;">
+    		<iframe width="800" height="450" src="https://embed.figma.com/proto/l3A8gKqCK7VWDvQfwhbsW5/Untitled?node-id=225-52&scaling=scale-down-width&content-scaling=fixed&page-id=71%3A820&embed-host=share" allowfullscreen></iframe>
+		</div>
+
+		<script>
+    		const modal = document.getElementById('figmaModal');
+    		const btn = document.getElementById('figmaToggle');
+
+    		btn.addEventListener('click', function(e) {
+        		e.preventDefault();
+        		const isOpen = modal.style.display === 'flex';
+        		modal.style.display = isOpen ? 'none' : 'flex';
+    		});
+
+    		modal.addEventListener('click', function(e) {
+        		if (e.target === modal) modal.style.display = 'none';
+    		});
+		</script>
+
+
+
+
+	</section><!-- /#about -->
+
+	<!-- ════ WORKS SECTION ════ -->
+	<section class="works" id="works">
+
+		<span class="works__label">Works</span>
+
+		<div class="works__carousel">
+			<div class="works__track" id="worksTrack">
+
+				<div class="works__slide" data-href="project-1.html">
+					<span class="works__glyph" data-char="n" data-img="https://res.cloudinary.com/dzayipaad/image/upload/v1778660905/%EB%B0%95%EC%8A%A4_2_nxid64.png">H</span>
+					<span class="works__year">2025</span>
+				</div>
+
+				<div class="works__slide" data-href="project-2.html">
+					<span class="works__glyph" data-char="a" data-img="https://res.cloudinary.com/dzayipaad/image/upload/v1778203679/%ED%8F%B0%ED%8A%B8_%EC%9D%BC%EB%9F%AC%EB%A1%9C_%EC%9E%91%EC%97%85_0202020_%EB%B3%B5%EA%B5%AC%EB%90%A8_11SSDSD_%EB%8C%80%EC%A7%80_7_hpfhil.png">W</span>
+					<span class="works__year">2025</span>
+				</div>
+ 
+				<div class="works__slide" data-href="project-3.html">
+					<span class="works__glyph" data-char="s" data-img="https://res.cloudinary.com/dzayipaad/image/upload/v1778207757/%EC%8B%9C%EA%B0%81%EB%AF%B8%EB%94%94%EC%96%B4%EB%A6%AC%EC%84%9C%EC%B9%98_%EC%A4%91%EA%B0%84_%EB%8B%A4%EC%8B%9C_%EC%A0%80%EC%9E%A54_ilcpvh.jpg">V</span>
+					<span class="works__year">2025</span>
+				</div>
+
+				<div class="works__slide" data-href="project-4.html">
+					<span class="works__glyph" data-char="t" data-img="https://res.cloudinary.com/dzayipaad/image/upload/v1778209080/dfss_elq1em.jpg">E</span>
+					<span class="works__year">2025</span>
+				</div>
+
+				<div class="works__slide" data-href="project-5.html">
+					<span class="works__glyph" data-char="m" data-img="https://res.cloudinary.com/dzayipaad/image/upload/v1778210874/%EC%8A%A4%ED%81%AC%EB%A6%B0_%EC%86%8D_%EA%B7%B8%EB%95%8C_%EA%B7%B8%EC%8B%9C%EC%A0%88_2232296%EA%B9%80%EC%83%81%EA%B2%BD_%EB%8C%80%EC%A7%80_1_wuwsbm.png">O</span>
+					<span class="works__year">2024</span>
+				</div>
+
+				<!-- 마지막 슬라이드: 화살표 + Works -->
+				<div class="works__slide works__slide--last">
+					<a class="works__cta" href="works.html">
+						<div class="works__cta-arrow">
+							<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line x1="10" y1="50" x2="50" y2="10" stroke="#E6DFCF" stroke-width="5.5" stroke-linecap="square"/>
+								<polyline points="22,10 50,10 50,38" fill="none" stroke="#E6DFCF" stroke-width="5.5" stroke-linejoin="miter" stroke-linecap="square"/>
+							</svg>
+						</div>
+						<span class="works__cta-text">Works</span>
+					</a>
+				</div>
+
+			</div><!-- /.works__track -->
+		</div><!-- /.works__carousel -->
+
+	</section>
+
+	<!-- ════ AI ARCHIVE SECTION ════ -->
+	<section class="ai-archive" id="ai-archive">
+
+		<div class="ai-archive__top">
+			<h2 class="ai-archive__captured">CAPTURED</h2>
+			<div class="ai-archive__line ai-archive__line--top"></div>
+		</div>
+
+		<div class="ai-archive__middle">
+			<span class="ai-archive__glyph">V</span>
+			<div class="ai-archive__line ai-archive__line--bottom"></div>
+			<h2 class="ai-archive__generated">GENERATED</h2>
+		</div>
+
+		<div class="ai-archive__body">
+			<video class="ai-archive__img" id="aiVideo" muted playsinline></video>
+			<div class="ai-archive__cta">
+				<span class="ai-archive__cta-label">Al Archive</span>
+				<a class="ai-archive__cta-arrow" href="imagery.html">
+					<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<line x1="10" y1="50" x2="50" y2="10" stroke="#AC2C37" stroke-width="6" stroke-linecap="square"/>
+						<polyline points="22,10 50,10 50,38" fill="none" stroke="#AC2C37" stroke-width="6" stroke-linejoin="miter" stroke-linecap="square"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+
+	</section>
+
+	<!-- ════ CONTACT SECTION ════ -->
+	<section class="beige-section">
+		<div class="contact__top-right">
+			<span class="contact__label">Contact me</span>
+			<a class="contact__learnmore" href="mailto:2232296@donga.ac.kr">
+				<div class="contact__arrow">
+					<svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<line x1="10" y1="50" x2="50" y2="10" stroke="black" stroke-width="5.5" stroke-linecap="square"/>
+						<polyline points="22,10 50,10 50,38" fill="none" stroke="black" stroke-width="5.5" stroke-linejoin="miter" stroke-linecap="square"/>
+					</svg>
+				</div>
+			</a>
+		</div>
+		<div class="contact__center">
+			<h2 class="contact__title">Get in touch:)</h2>
+		</div>
+		<div class="contact__bottom">
+			<p class="contact__desc">
+				Thanks for scrolling all the way! I'm currently open to new projects
+				and creative collaborations. Feel free to reach out if you'd like to
+				discuss a project or just say hi.
+			</p>
+		</div>
+	</section>
+
+	<!-- JS -->
+	<script src="js/components.js"></script>
+	<script src="js/script_home.js"></script>
+
+</body>
+</html>

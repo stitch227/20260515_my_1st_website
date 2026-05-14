@@ -13,13 +13,25 @@ const HEADER_HTML = `
 document.addEventListener("DOMContentLoaded", () => {
   document.body.insertAdjacentHTML("afterbegin", HEADER_HTML);
 
+  // 모달 자동 생성
+  document.body.insertAdjacentHTML("beforeend", `
+    <div id="figmaModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:10000; align-items:center; justify-content:center;">
+      <iframe width="800" height="450" src="https://embed.figma.com/proto/l3A8gKqCK7VWDvQfwhbsW5/Untitled?node-id=225-52&scaling=min-zoom&content-scaling=fixed&page-id=71%3A820&embed-host=share" allowfullscreen></iframe>
+    </div>
+  `);
+
   const btn = document.getElementById('headerAboutBtn');
   const modal = document.getElementById('figmaModal');
-  btn.addEventListener('click', e => { e.preventDefault(); modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex'; });
+
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
 });
-
-
-
 
 function createFooter() {
   const footer = document.createElement('footer');
@@ -43,6 +55,7 @@ function createFooter() {
   document.body.appendChild(footer);
   fitFooterName();
 }
+
 function fitFooterName() {
   const el = document.querySelector('.footer-name');
   if (!el) return;
@@ -52,7 +65,6 @@ function fitFooterName() {
 
   document.fonts.ready.then(() => {
     const availableWidth = parentEl.clientWidth * (1 - 0.038 * 2);
-
     el.style.display = 'inline-block';
     el.style.width = 'auto';
 
@@ -64,7 +76,6 @@ function fitFooterName() {
       el.style.fontSize = size + 'px';
     }
 
-    // 복구 + 중앙정렬 명시
     el.style.display = 'block';
     el.style.width = '100%';
     el.style.textAlign = 'center';
